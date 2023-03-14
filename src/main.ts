@@ -3,7 +3,8 @@ import { v4 as uuidV4 } from 'uuid'
 const list = document.querySelector<HTMLUListElement>('#list')
 const input = document.querySelector<HTMLInputElement>('#new-task-title')
 const form = document.getElementById('new-task-form') as HTMLFormElement
-const tasks: Task[] = []
+const tasks: Task[] = loadTasks()
+tasks.forEach(addListItem)
 
 type Task = {
   id: string
@@ -39,8 +40,20 @@ function addListItem(task: Task) {
     saveTasks()
   })
   checkbox.type = 'checkbox'
+  checkbox.checked = checkbox.checked
   label.append(checkbox, task.title)
   item.append(label)
   list?.append(item)
-  item.classList.add('pt-2 pl-2')
+  item.className = 'pt-2'
+  checkbox.className = 'mr-1'
+}
+
+function saveTasks() {
+  localStorage.setItem('TASKS', JSON.stringify(tasks))
+}
+
+function loadTasks(): Task[] {
+  const taskJSON = localStorage.getItem('TASKS')
+  if (taskJSON == null) return []
+  return JSON.parse(taskJSON)
 }
