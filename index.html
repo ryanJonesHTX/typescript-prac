@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="/src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body>
+  <div id="app" class="w-full flex flex-col">
+    <div class="mx-auto">
+      <h1 class="text-red-700 text-7xl">HELLO WORLD</h1>
+      <div class="flex justify-center">
+        <form id="new-task-form" class="flex flex-col items-center pt-4">
+          <label for="task" class="text-gray-700">Task</label>
+          <input type="text" id="new-task-title"
+            class="block mt-2 py-2 px-1 rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 w-full"
+            placeholder="Add task">
+          <button type="submit"
+            class="mt-2 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add</button>
+        </form>
+      </div>
+      <ul id="list" class="list-none pt-2 ml-4"></ul>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
